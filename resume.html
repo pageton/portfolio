@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadiq - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            /* Slate 900 */
+            --secondary: #475569;
+            /* Slate 600 */
+            --accent: #2563eb;
+            /* Blue 600 */
+            --bg: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f3f4f6;
+            /* Light gray background for web preview */
+            color: var(--primary);
+            line-height: 1.5;
+            font-size: 9pt;
+            /* Compact font size for resume */
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 12mm 15mm;
+            background: white;
+            margin: 20px auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            /* Main content | Sidebar */
+            gap: 12mm;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 24pt;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+            margin-top: 16px;
+        }
+
+        h3 {
+            font-size: 10pt;
+            font-weight: 700;
+        }
+
+        h4 {
+            font-size: 9pt;
+            font-weight: 400;
+            color: var(--secondary);
+            margin-bottom: 2px;
+        }
+
+        p,
+        li {
+            color: #334155;
+            margin-bottom: 4px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Header */
+        .header {
+            grid-column: 1 / -1;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-info {
+            text-align: right;
+            font-size: 8.5pt;
+            line-height: 1.4;
+        }
+
+        .role {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* Main Column */
+        .main-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-content {
+            margin-bottom: 10px;
+        }
+
+        .entry {
+            margin-bottom: 10px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .entry-date {
+            font-size: 8.5pt;
+            color: var(--secondary);
+            font-feature-settings: "tnum";
+            font-weight: 500;
+        }
+
+        .entry-description {
+            font-size: 9pt;
+            text-align: justify;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-item {
+            margin-bottom: 8px;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            font-size: 9pt;
+            margin-bottom: 2px;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            font-size: 8.5pt;
+            color: var(--secondary);
+            line-height: 1.4;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 8pt;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        /* Print Media Query */
+        @media print {
+            body {
+                background: none;
+            }
+
+            .page {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>Sadiq</h1>
+                <div class="role">Backend & Systems Engineer</div>
+            </div>
+            <div class="header-info">
+                <div><a href="mailto:pageton@proton.me">pageton@proton.me</a></div>
+                <div><a href="https://sadiq.dev">sadiq.dev</a></div>
+                <div><a href="https://github.com/pageton">github.com/pageton</a></div>
+                <div>Basra, Iraq</div>
+            </div>
+        </header>
+
+        <!-- Main Column -->
+        <div class="main-col">
+            <!-- Profile -->
+            <section>
+                <h2>Professional Summary</h2>
+                <div class="section-content">
+                    <p class="entry-description">
+                        Backend & Systems Engineer focused on building scalable, high-performance systems. Deep
+                        expertise in <strong>Go (Golang)</strong> and <strong>TypeScript</strong>, with specialized
+                        experience in <strong>FFI</strong> (Foreign Function Interface) for multi-language integration
+                        and <strong>TinyGo</strong> for embedded environments. Framework-agnostic problem solver with a
+                        strong command of Linux (NixOS) and DevOps practices.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section>
+                <h2>Experience</h2>
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Full Stack Developer</h3>
+                        <span class="entry-date">2021 – Present</span>
+                    </div>
+                    <h4>Self-Employed / Freelance</h4>
+                    <p class="entry-description">
+                        Architecting and developing full-stack applications and high-performance backend systems.
+                        Specializing in performance optimization, distributed system design, and creating robust APIs
+                        using Go and modern web frameworks.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section>
+                <h2>Key Projects</h2>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Nest-Server</h3>
+                        <span class="entry-date">Go, Fiber</span>
+                    </div>
+                    <p class="entry-description">
+                        Engineered a high-performance backend service for file management.
+                        Implemented efficient file streaming and processing pipelines to handle large datasets with
+                        minimal memory footprint.
+                    </p>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Authify</h3>
+                        <span class="entry-date">Go, OAuth2, Docker</span>
+                    </div>
+                    <p class="entry-description">
+                        Designed a secure and flexible user authentication system.
+                        Implemented OAuth2 protocols and comprehensive security measures to ensure robust identity
+                        management for modern web apps.
+                    </p>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>Temp-Mail</h3>
+                        <span class="entry-date">Go, Postfix, SQLite</span>
+                    </div>
+                    <p class="entry-description">
+                        Developed a self-hosted temporary email infrastructure.
+                        Automated Postfix configuration and implemented a custom SMTP handler in Go to process incoming
+                        emails and manage ephemeral inboxes.
+                    </p>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-header">
+                        <h3>NixOS Configuration</h3>
+                        <span class="entry-date">Nix, Linux</span>
+                    </div>
+                    <p class="entry-description">
+                        Created a fully reproducible development environment using NixOS flakes.
+                        Automated system provisioning, dotfile management, and development toolchains for consistency
+                        across machines.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <section>
+                <h2>Skills</h2>
+
+                <div class="skill-item">
+                    <div class="skill-category">Languages</div>
+                    <div class="skill-list">
+                        <span class="tech-tag">Go (Golang)</span>
+                        <span class="tech-tag">TinyGo</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-category">Systems & DevOps</div>
+                    <div class="skill-list">
+                        <span class="tech-tag">FFI</span>
+                        <span class="tech-tag">Nix / NixOS</span>
+                        <span class="tech-tag">Linux</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Nginx</span>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-category">Backend</div>
+                    <div class="skill-list">
+                        <span class="tech-tag">Fiber</span>
+                        <span class="tech-tag">Huma</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">Hono</span>
+                        <span class="tech-tag">Elysia</span>
+                        <span class="tech-tag">OpenAPI</span>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-category">Database</div>
+                    <div class="skill-list">
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">SQLC</span>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-category">Frontend</div>
+                    <div class="skill-list">
+                        <span class="tech-tag">Svelte</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
