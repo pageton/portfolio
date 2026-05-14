@@ -72,6 +72,12 @@ export const projects: Project[] = [
         tags: ["Go", "Telegram", "API"]
     },
     {
+        title: "mtgo",
+        description: "Go MTProto client for Telegram bots and userbots — generated TL types, SQLite session storage, middleware, and plugin system.",
+        link: "https://github.com/mtgo-labs/mtgo",
+        tags: ["Go", "Telegram", "MTProto"]
+    },
+    {
         title: "dbview",
         description: "Terminal TUI database viewer for 9 backends including SQLite, PostgreSQL, MySQL, MongoDB, and Redis.",
         link: "https://github.com/pageton/dbview",
