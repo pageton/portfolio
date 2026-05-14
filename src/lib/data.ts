@@ -14,7 +14,7 @@ export const profile: Profile = {
     name: "Sadiq",
     role: "Full Stack Software Engineer",
     location: "Basra, Iraq",
-    bio: "Backend & Systems Engineer | Focused on high-performance, scalable systems. Experiened in Go (including TinyGo) and FFI for multi-language integration. Specialized in TypeScript and NixOS.",
+    bio: "Backend & Systems Engineer | Focused on high-performance, scalable systems. Experienced in Go (including TinyGo) and FFI for multi-language integration. Specialized in TypeScript, NixOS, and DevOps.",
     email: "pageton@proton.me",
     github: "https://github.com/pageton",
     wakatime: "https://wakatime.com/@Rio",
@@ -60,16 +60,28 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        title: "Nest-Server",
-        description: "A high-performance backend service for file management built with Go and Fiber.",
-        link: "https://github.com/MyCloudNest/Nest-Server",
-        tags: ["Go", "Fiber", "Backend"]
+        title: "Runix",
+        description: "Modern polyglot process manager & application supervisor with CLI, TUI, Web UI, and MCP server. Built as a PM2 alternative in Go.",
+        link: "https://github.com/RunixIO/runix",
+        tags: ["Go", "DevOps", "System"]
     },
     {
-        title: "Authify",
-        description: "Secure and flexible user authentication system designed for modern web applications.",
-        link: "https://github.com/pageton/authify",
-        tags: ["Go", "OAuth2", "Security"]
+        title: "botx",
+        description: "High-performance Go Telegram Bot API client with auto-generated types, middleware framework, and webhook support.",
+        link: "https://github.com/pageton/botx",
+        tags: ["Go", "Telegram", "API"]
+    },
+    {
+        title: "dbview",
+        description: "Terminal TUI database viewer for 9 backends including SQLite, PostgreSQL, MySQL, MongoDB, and Redis.",
+        link: "https://github.com/pageton/dbview",
+        tags: ["Go", "TUI", "Database"]
+    },
+    {
+        title: "bridge-db",
+        description: "Move data between SQL and NoSQL databases — 8 engines, 64 pairings with checkpoint, resume, and SSH tunneling.",
+        link: "https://github.com/pageton/bridge-db",
+        tags: ["Go", "Database", "CLI"]
     },
     {
         title: "Temp-Mail",
@@ -82,5 +94,11 @@ export const projects: Project[] = [
         description: "Reproducible system configuration for my personal development environment using Nix.",
         link: "https://github.com/pageton/nixos-config",
         tags: ["Nix", "DevOps", "Linux"]
+    },
+    {
+        title: "Server",
+        description: "Reproducible NixOS server configuration with modular deployments for Nginx, Tailscale, Cloudflare, Bitwarden, and MTProxy.",
+        link: "https://github.com/pageton/Server",
+        tags: ["Nix", "DevOps", "Server"]
     }
 ];

@@ -3,28 +3,41 @@
   import { reveal } from './actions';
 </script>
 
-<section id="contact" class="py-24 px-6 max-w-2xl mx-auto text-center flex flex-col items-center" use:reveal={{ delay: 200 }}>
-  <p class="text-cyan-500 font-mono mb-4 text-sm">04. What's Next?</p>
-  <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h2>
-  <p class="text-zinc-400 text-lg mb-12 leading-relaxed max-w-xl">
-    I'm currently looking for new opportunities in system programming and backend development. My inbox is always open.
-  </p>
-  <a href="mailto:{profile.email}" class="inline-block px-8 py-4 border border-cyan-400/30 text-cyan-400 font-medium rounded hover:bg-cyan-400/10 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] transition-all duration-300">
-    Say Hello
-  </a>
-
-  <footer class="mt-32 text-zinc-600 text-xs font-mono">
-    <div class="flex flex-col items-center gap-6 mb-8">
-         <div class="flex gap-6 text-sm flex-wrap justify-center">
-            <a href={profile.github} target="_blank" class="hover:text-cyan-400 transition-colors">GitHub</a>
-            <a href={profile.linkedin} target="_blank" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
-            <a href={profile.telegram} target="_blank" class="hover:text-cyan-400 transition-colors">Telegram</a>
-            <a href="mailto:{profile.email}" class="hover:text-cyan-400 transition-colors">Email</a>
-         </div>
-         <a href="https://wakatime.com/@bf88d397-0648-4876-a53c-b2807508c148" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity">
-            <img src="https://wakatime.com/badge/user/bf88d397-0648-4876-a53c-b2807508c148.svg" alt="Total time coded since May 31 2024" />
-         </a>
+<section id="contact" class="py-24 px-6 max-w-5xl mx-auto" use:reveal={{ delay: 100 }}>
+  <div class="max-w-xl">
+    <div class="flex items-center gap-4 mb-8">
+      <span class="section-label">Contact</span>
+      <div class="section-divider"></div>
     </div>
-    <p>Designed & Built by {profile.name}</p>
+
+    <h2 class="font-[var(--font-display)] text-4xl md:text-5xl font-bold text-[var(--color-text)] tracking-tight mb-6 leading-tight">
+      Let's work<br>together.
+    </h2>
+    <p class="text-[var(--color-text-secondary)] text-lg mb-10 leading-relaxed max-w-md">
+      Currently looking for new opportunities in systems programming and backend development. My inbox is always open.
+    </p>
+
+    <a href="mailto:{profile.email}"
+      class="btn-press inline-block px-7 py-3 bg-[var(--color-accent)] text-[var(--color-bg)] font-[var(--font-display)] font-semibold text-sm tracking-wide rounded-sm hover:bg-[var(--color-accent-hover)]">
+      {profile.email}
+    </a>
+  </div>
+
+  <footer class="mt-40 border-t border-[var(--color-border)]/60 pt-8">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+      <div class="flex gap-6 text-sm">
+        <a href={profile.github} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-200">GitHub</a>
+        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-200">LinkedIn</a>
+        <a href={profile.telegram} target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors duration-200">Telegram</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="https://wakatime.com/@bf88d397-0648-4876-a53c-b2807508c148" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition-opacity duration-200">
+          <img src="https://wakatime.com/badge/user/bf88d397-0648-4876-a53c-b2807508c148.svg" alt="Total time coded since May 31 2024" />
+        </a>
+      </div>
+    </div>
+
+    <p class="mt-6 text-[var(--color-text-muted)] text-xs">Built by {profile.name}</p>
   </footer>
 </section>
