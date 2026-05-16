@@ -1,46 +1,59 @@
 <script lang="ts">
   import { profile } from './data';
-  import { fly, fade } from 'svelte/transition';
+  import { reveal } from './actions';
 
   function scrollToProjects() {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   }
 </script>
 
-<section class="relative min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto py-24">
-  <div class="space-y-8">
-    <p class="section-label ml-0.5" in:fly={{ y: 30, duration: 800, delay: 200 }}>Engineer & Builder</p>
+<section class="relative min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto">
+  <div class="space-y-10 pt-24 pb-32">
+    <div class="flex items-center gap-3" use:reveal={{ delay: 0, duration: 500, y: 16 }}>
+      <span class="section-label">Systems Engineer</span>
+      <span class="block h-px w-8 bg-[var(--color-accent)]/40 origin-left" style="animation: draw-line 0.5s var(--ease-out-expo) 0.15s forwards; transform: scaleX(0)"></span>
+    </div>
 
-    <h1 class="font-[var(--font-display)] text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--color-text)] leading-[0.9]"
-      in:fly={{ y: 60, duration: 900, delay: 350 }}>
+    <h1 class="font-[var(--font-display)] font-black italic
+      text-[clamp(4rem,10vw,7.5rem)]
+      text-[var(--color-text)]
+      leading-[0.85]
+      tracking-[-0.03em]"
+      use:reveal={{ delay: 200, duration: 800, y: 80 }}>
       {profile.name}
     </h1>
 
-    <h2 class="font-[var(--font-display)] text-2xl md:text-3xl font-medium text-[var(--color-text-secondary)] tracking-tight max-w-2xl leading-snug"
-      in:fly={{ y: 24, duration: 800, delay: 500 }}>
-      Building high-performance systems tooling &mdash; from process managers to database utilities.
+    <h2 class="font-[var(--font-display)] font-light italic
+      text-[clamp(1.25rem,2.5vw,1.75rem)]
+      text-[var(--color-text-secondary)]
+      leading-snug max-w-2xl
+      tracking-[-0.01em]"
+      use:reveal={{ delay: 400, duration: 600, y: 40 }}>
+      Building high-performance systems &mdash; from process managers to database utilities, protocol clients to infrastructure tooling.
     </h2>
 
-    <p class="text-[var(--color-text-secondary)] max-w-xl text-base leading-relaxed"
-      in:fly={{ y: 20, duration: 800, delay: 600 }}>
+    <p class="text-[var(--color-text-secondary)] max-w-xl text-base leading-relaxed tracking-wide"
+      use:reveal={{ delay: 550, duration: 600, y: 24 }}>
       {profile.bio}
     </p>
 
-    <div class="pt-8 flex gap-3" in:fly={{ y: 20, duration: 800, delay: 700 }}>
+    <div class="pt-6 flex gap-4 items-center" use:reveal={{ delay: 700, duration: 600, y: 24 }}>
       <button on:click={scrollToProjects}
-        class="btn-press px-7 py-3 bg-[var(--color-accent)] text-[var(--color-bg)] font-[var(--font-display)] font-semibold text-sm tracking-wide rounded-sm hover:bg-[var(--color-accent-hover)]">
+        class="btn-press btn-primary px-6 py-3 bg-[var(--color-accent)] text-[var(--color-text-inverse)] font-bold text-sm tracking-wider uppercase hover:bg-[var(--color-accent-hover)]">
         View Work
       </button>
 
       <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-        class="btn-press px-7 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-[var(--font-display)] font-medium text-sm tracking-wide rounded-sm hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface)] flex items-center gap-2">
+        class="btn-press btn-outline px-6 py-3 border-2 border-[var(--color-border)] text-[var(--color-text)] font-bold text-sm tracking-wider uppercase hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] inline-flex items-center gap-2">
         <span>Resume</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
     </div>
   </div>
 
-  <div class="animate-float absolute bottom-8 left-1/2 opacity-30" in:fade={{ duration: 800, delay: 1200 }}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+  <div class="absolute bottom-18 left-1/2 -translate-x-1/2 opacity-25" use:reveal={{ delay: 1100, duration: 500, y: 8 }}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
   </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--color-border)] origin-left" style="animation: draw-line 0.8s var(--ease-out-expo) 0.6s both"></div>
 </section>

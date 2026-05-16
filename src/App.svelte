@@ -7,7 +7,10 @@
   import Contact from './lib/Contact.svelte';
 </script>
 
-<div class="bg-[var(--color-bg)] text-[var(--color-text)] selection:bg-[var(--color-accent)]/25 selection:text-[#F5E6C8] font-[var(--font-body)] antialiased [overflow:hidden_visible] relative">
+<div class="relative bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] selection:bg-[var(--color-accent)]/30 min-h-screen">
+  <div class="grain"></div>
+  <div class="grid-overlay"></div>
+
   <Navbar />
 
   <main class="relative z-10 w-full">

@@ -1,21 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Times New Roman', serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
-  --color-bg: #0C0C0F;
-  --color-surface: #16161A;
-  --color-surface-hover: #1C1C22;
-  --color-border: #2A2A32;
-  --color-border-hover: #3A3A44;
-  --color-accent: #D4A853;
-  --color-accent-muted: rgba(212, 168, 83, 0.15);
-  --color-accent-hover: #E0B966;
-  --color-text: #E8E6E3;
-  --color-text-secondary: #8A8A96;
-  --color-text-muted: #6E6E7A;
+
+  --color-bg: oklch(0.14 0.006 80);
+  --color-surface: oklch(0.17 0.006 80);
+  --color-surface-hover: oklch(0.21 0.006 80);
+  --color-border: oklch(0.28 0.008 70);
+  --color-border-hover: oklch(0.40 0.01 70);
+  --color-border-strong: oklch(0.38 0.012 70);
+
+  --color-accent: oklch(0.54 0.17 30);
+  --color-accent-muted: oklch(0.54 0.17 30 / 0.12);
+  --color-accent-hover: oklch(0.62 0.17 30);
+
+  --color-text: oklch(0.89 0.006 85);
+  --color-text-secondary: oklch(0.60 0.006 85);
+  --color-text-muted: oklch(0.42 0.006 85);
+  --color-text-inverse: oklch(0.14 0.005 80);
+
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 :root {
@@ -26,9 +34,7 @@
   scrollbar-width: none;
 }
 
-:root::-webkit-scrollbar {
-  display: none;
-}
+:root::-webkit-scrollbar { display: none; }
 
 body {
   background-color: var(--color-bg);
@@ -40,71 +46,233 @@ body {
 }
 
 ::selection {
-  background-color: rgba(212, 168, 83, 0.25);
-  color: #F5E6C8;
+  background-color: oklch(0.54 0.17 30 / 0.30);
+  color: var(--color-text);
 }
 
 .section-label {
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  font-style: italic;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
 .section-divider {
-  height: 1px;
-  background: linear-gradient(to right, var(--color-border), transparent);
+  height: 2px;
+  background: var(--color-border);
   flex-grow: 1;
-  max-width: 16rem;
+  max-width: 12rem;
   margin-left: 1rem;
   transform-origin: left;
-  animation: draw-line 0.8s var(--ease-out-expo) forwards;
+  animation: draw-line 0.6s var(--ease-out-expo) forwards;
 }
 
 @keyframes draw-line {
-  from {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-  to {
-    transform: scaleX(1);
-    opacity: 1;
-  }
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(6px);
-  }
+/* ---- Scroll progress bar ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-accent);
+  z-index: 200;
+  transform-origin: left;
 }
 
-.animate-float {
-  animation: float 3s var(--ease-out-quart) infinite;
+/* ---- Grain & grid overlays ---- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+/* ---- Nav link hover underline ---- */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s var(--ease-out-expo);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---- Skill item border extend ---- */
+.skill-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s var(--ease-out-expo);
+}
+
+.skill-item:hover::before {
+  transform: scaleY(1);
+}
+
+.skill-item:hover {
+  color: var(--color-text);
+}
+
+/* ---- Project row left accent ---- */
+.project-row {
+  position: relative;
+}
+
+.project-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-accent);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transform-origin: center;
+  transition: opacity 0.25s var(--ease-out-expo), transform 0.25s var(--ease-out-expo);
+}
+
+.project-row:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* ---- Experience row left marker ---- */
+.experience-row {
+  position: relative;
+}
+
+.experience-row::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.experience-row:hover::before {
+  transform: scaleY(1);
+}
+
+/* ---- Button interactions ---- */
 .btn-press {
-  transition: transform 100ms var(--ease-out-quart), background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  transition: transform 0.08s var(--ease-out-quart);
 }
 
 .btn-press:active {
   transform: scale(0.97);
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: 2px;
+/* ---- Primary button hover lift ---- */
+.btn-primary {
+  transition: transform 0.15s var(--ease-out-expo), background-color 0.15s var(--ease-out-quart);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    scroll-behavior: auto;
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+/* ---- Outline button hover ---- */
+.btn-outline {
+  transition: transform 0.15s var(--ease-out-expo), border-color 0.15s var(--ease-out-quart), color 0.15s var(--ease-out-quart);
+}
+
+.btn-outline:hover {
+  transform: translateY(-1px);
+}
+
+/* ---- Mobile menu animation ---- */
+.mobile-menu-enter {
+  animation: menu-slide-in 0.25s var(--ease-out-expo) forwards;
+}
+
+@keyframes menu-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-item {
+  animation: menu-item-in 0.2s var(--ease-out-expo) both;
+}
+
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---- Focus ---- */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
