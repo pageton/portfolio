@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { projects } from './data';
-  import { reveal, revealLeft } from './actions';
+  import { projects } from '$lib/data';
+  import { reveal, revealLeft } from '$lib/actions';
 </script>
 
 <section id="projects" class="py-24 px-6 max-w-5xl mx-auto">
@@ -11,30 +11,29 @@
 
   <div class="border-t-[3px] border-[var(--color-border)]">
     {#each projects as project, i}
-      {@const isFeatured = i === 0}
       {@const isLast = i === projects.length - 1}
       <div use:revealLeft={{ delay: i * 80, duration: 500, x: 24 }}>
         <a href={project.link} target="_blank" rel="noopener noreferrer"
           class="project-row block group py-8 hover:bg-[var(--color-surface)]/60 -mx-4 px-4
             transition-colors duration-150">
-          <div class="{isFeatured ? 'md:flex md:items-start md:justify-between md:gap-10' : 'flex items-start justify-between gap-6'}">
+          <div class="flex items-start justify-between gap-6">
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-3 mb-3">
-                {#if isFeatured}
-                  <span class="inline-block px-2 py-0.5 text-[0.6rem] font-bold font-[var(--font-display)] tracking-[0.15em] uppercase border-2 border-[var(--color-accent)]/40 text-[var(--color-accent)]">
-                    Featured
-                  </span>
-                {/if}
-                <h3 class="font-[var(--font-display)] font-bold italic {isFeatured ? 'text-2xl md:text-3xl' : 'text-xl'}
+                <h3 class="font-[var(--font-display)] font-bold italic text-xl
                   text-[var(--color-text)] group-hover:text-[var(--color-accent)]
                   transition-colors duration-150">
                   {project.title}
                 </h3>
+                {#if i === 0}
+                  <span class="inline-block px-2 py-0.5 text-[0.6rem] font-bold font-[var(--font-display)] tracking-[0.15em] uppercase border-2 border-[var(--color-accent)]/40 text-[var(--color-accent)]">
+                    Featured
+                  </span>
+                {/if}
               </div>
-              <p class="{isFeatured ? 'text-base leading-relaxed max-w-2xl' : 'text-sm leading-relaxed'}
+              <p class="text-sm leading-relaxed
                 text-[var(--color-text-secondary)]
                 group-hover:text-[var(--color-text)]
-                transition-colors duration-150">
+                transition-colors duration-150 max-w-2xl">
                 {project.description}
               </p>
               {#if project.tags}
@@ -50,7 +49,7 @@
             </div>
 
             <svg xmlns="http://www.w3.org/2000/svg"
-              width="{isFeatured ? 20 : 16}" height="{isFeatured ? 20 : 16}"
+              width="16" height="16"
               viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"
               class="mt-1 text-[var(--color-text-muted)]

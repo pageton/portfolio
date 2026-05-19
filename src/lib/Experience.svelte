@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { experience } from './data';
-  import { reveal, revealLeft } from './actions';
+  import { experience } from '$lib/data';
+  import { revealLeft } from '$lib/actions';
 </script>
 
 <section id="experience" class="py-24 px-6 max-w-5xl mx-auto">
-  <div class="flex items-center gap-4 mb-20" use:reveal={{ delay: 0 }}>
-    <span class="section-label">Experience</span>
+  <div class="flex items-center gap-4 mb-20" use:revealLeft={{ delay: 0 }}>
+    <span class="section-label">Background</span>
     <div class="section-divider"></div>
   </div>
 

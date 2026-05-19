@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { profile } from './data';
-  import { reveal } from './actions';
+  import { profile, openToWork } from '$lib/data';
+  import { reveal } from '$lib/actions';
 
   function scrollToProjects() {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -8,9 +8,9 @@
 </script>
 
 <section class="relative min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto">
-  <div class="space-y-10 pt-24 pb-32">
+  <div class="space-y-8 pt-24 pb-32">
     <div class="flex items-center gap-3" use:reveal={{ delay: 0, duration: 500, y: 16 }}>
-      <span class="section-label">Systems Engineer</span>
+      <span class="section-label">{profile.role}</span>
       <span class="block h-px w-8 bg-[var(--color-accent)]/40 origin-left" style="animation: draw-line 0.5s var(--ease-out-expo) 0.15s forwards; transform: scaleX(0)"></span>
     </div>
 
@@ -29,7 +29,7 @@
       leading-snug max-w-2xl
       tracking-[-0.01em]"
       use:reveal={{ delay: 400, duration: 600, y: 40 }}>
-      Building high-performance systems &mdash; from process managers to database utilities, protocol clients to infrastructure tooling.
+      Building backend infrastructure, Telegram/MTProto tooling, database CLIs, and AI-agent workflows &mdash; in Go.
     </h2>
 
     <p class="text-[var(--color-text-secondary)] max-w-xl text-base leading-relaxed tracking-wide"
@@ -37,7 +37,13 @@
       {profile.bio}
     </p>
 
-    <div class="pt-6 flex gap-4 items-center" use:reveal={{ delay: 700, duration: 600, y: 24 }}>
+    <div class="inline-flex items-center gap-2 px-4 py-2 border-2 border-[var(--color-accent)]/30 text-[var(--color-accent)] text-sm font-semibold tracking-wide"
+      use:reveal={{ delay: 650, duration: 500, y: 16 }}>
+      <span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+      {openToWork}
+    </div>
+
+    <div class="pt-4 flex gap-4 items-center" use:reveal={{ delay: 750, duration: 600, y: 24 }}>
       <button on:click={scrollToProjects}
         class="btn-press btn-primary px-6 py-3 bg-[var(--color-accent)] text-[var(--color-text-inverse)] font-bold text-sm tracking-wider uppercase hover:bg-[var(--color-accent-hover)]">
         View Work

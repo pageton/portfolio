@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { skills } from './data';
-  import { reveal, revealLeft } from './actions';
+  import { skills } from '$lib/data';
+  import { reveal, revealLeft } from '$lib/actions';
 </script>
 
 <section id="skills" class="py-24 px-6 max-w-5xl mx-auto">
   <div class="flex items-center gap-4 mb-20" use:reveal={{ delay: 0 }}>
-    <span class="section-label">Skills</span>
+    <span class="section-label">Technical Strengths</span>
     <div class="section-divider"></div>
   </div>
 

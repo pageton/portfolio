@@ -23,8 +23,8 @@
 
     <div class="hidden md:flex items-center gap-8 text-sm font-medium">
       <a href="#about" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">About</a>
-      <a href="#skills" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">Skills</a>
-      <a href="#experience" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">Experience</a>
+      <a href="#skills" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">Strengths</a>
+      <a href="#experience" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">Background</a>
       <a href="#projects" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">Work</a>
       <a href="#contact" class="nav-link text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150">Contact</a>
     </div>
@@ -48,8 +48,8 @@
     <div class="md:hidden bg-[var(--color-bg)]/98 backdrop-blur-sm border-t-2 border-[var(--color-border)] mobile-menu-enter">
       <div class="px-6 py-6 flex flex-col gap-4 text-sm font-medium">
         <a href="#about" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.05s" on:click={() => mobileOpen = false}>About</a>
-        <a href="#skills" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.1s" on:click={() => mobileOpen = false}>Skills</a>
-        <a href="#experience" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.15s" on:click={() => mobileOpen = false}>Experience</a>
+        <a href="#skills" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.1s" on:click={() => mobileOpen = false}>Strengths</a>
+        <a href="#experience" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.15s" on:click={() => mobileOpen = false}>Background</a>
         <a href="#projects" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.2s" on:click={() => mobileOpen = false}>Work</a>
         <a href="#contact" class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors duration-150 mobile-menu-item" style="animation-delay: 0.25s" on:click={() => mobileOpen = false}>Contact</a>
       </div>
